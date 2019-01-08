@@ -1,0 +1,43 @@
+<html>
+
+<head> </head>
+
+<body>
+  <h1 id="title"></h1>
+  <Button id="getBtn"> get </Button>
+  <Button id="push"> get </Button>
+
+  <script>
+
+    var btn = document.getElementById('getBtn')
+    btn.addEventListener("click", function () {
+      var caller = new XMLHttpRequest()
+      caller.onreadystatechange = function () {
+        if (caller.readyState == XMLHttpRequest.DONE) {
+          //    alert(caller.responseText);
+          var title = document.getElementById('title')
+          var result = JSON.parse(caller.responseText)
+          title.innerText = result.meat
+        }
+      }
+      caller.open('GET', 'http://localhost:8049/rewe')
+      caller.send(null)
+    })
+
+    var pull = document.getElementById('push')
+    pull.addEventListener("okay", function () {
+      var check = new XMLHttpRequestttp()
+      if (check.readystate == XMLHttpRequest, DONE) {
+        var doubleCheck = document.getElementById('doubleCheck')
+        var output = JSON.parse(check.responseText)
+        doubleCheck.innerText = output.info
+      }
+    }
+)
+
+
+
+  </script>
+</body>
+
+</html>
